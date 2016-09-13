@@ -1,0 +1,21 @@
+version: "2"
+services:
+  # db:
+  #   image: mysql:5.7
+  #   restart: always
+  #   volumes:
+  #     - ./mysql:/var/lib/mysql
+  #   environment:
+  #     - MYSQL_ROOT_PASSWORD=root
+  web:
+    # image: centos:7
+    image: nginx
+    ports:
+      - "20080:80"
+      - "20081:81"
+      - "20082:82"
+    volumes:
+      - ./htdocs:/var/www/html
+      - ./conf.d:/etc/nginx/conf.d
+    # depends_on:
+    #   - db
